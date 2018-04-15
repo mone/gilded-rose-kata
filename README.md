@@ -25,12 +25,14 @@ Pretty simple, right? Well this is where it gets interesting:
 
   - The quality of an item is never negative
 
-  - "Aged Brie" actually increases in quality the older it gets
-
   - The quality of an item is never more than 50
 
+The following Exceptions exist:
+
+  - "Aged Brie" actually increases in quality the older it gets
+
   - "Sulfuras", being a legendary item, never has to be sold or decreases in
-    quality
+    quality. Its quality is 80 (above the standard max of 50) and it never alters.
 
   - "Backstage passes", like aged brie, increases in quality as it's sell-in
     value approaches; quality increases by 2 when there are 10 days or less
@@ -47,7 +49,16 @@ as long as everything still works correctly. However, do not alter the item
 function as that belongs to the goblin in the corner who will insta-rage and
 one-shot you as he doesn't believe in shared code ownership.
 
+## Stories
 
-Just for clarification, an item can never have its quality increase above 50,
-however "Sulfuras" is a legendary item and as such its quality is 80 and it
-never alters.
+N1 Existing code should be tested
+
+N2 Better item wrappers should be prepared to ease update implementation
+
+N3 Code should be refactored to be more readable
+
+N4 "Conjured" item category should be introduced
+
+N5 We should talk to the customer to convince them to migrate from the name-based classification
+to an explicit classification via dedicated property: the current system is way too fragile (a
+simple typo will put an item in the wrong category)
