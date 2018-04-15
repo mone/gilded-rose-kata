@@ -55,7 +55,7 @@ N1 Existing code should be tested ✓
 
 N2 Better item wrappers should be prepared to ease update implementation ✓
 
-N3 Code should be refactored to be more readable
+N3 Code should be refactored to be more readable ✓
 
 N4 "Conjured" item category should be introduced
 
