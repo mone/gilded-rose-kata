@@ -39,9 +39,6 @@ The following Exceptions exist:
     and by 3 when there are 5 days or less but quality drops to 0 after the
     concert
 
-We have recently signed a supplier of conjured items. This requires an update
-to our system:
-
   - "Conjured" items degrade in quality twice as fast as normal items
 
 Feel free to make any changes to the update-quality method and add any new code
@@ -57,7 +54,7 @@ N2 Better item wrappers should be prepared to ease update implementation ✓
 
 N3 Code should be refactored to be more readable ✓
 
-N4 "Conjured" item category should be introduced
+N4 "Conjured" item category should be introduced ✓
 
 N5 We should talk to the customer to convince them to migrate from the name-based classification
 to an explicit classification via dedicated property: the current system is way too fragile (a
@@ -67,7 +64,7 @@ N6 quality and sellIn fields should be tagged types to prevent mistakes
 
 ## Bugs
 
-BUG1 Sulfuras quality is not always 80
+BUG1 Sulfuras quality is not always 80 ✓
 
 BUG2 Only one type of "Backstage passes" is supported: verify if this is the intended behavior
  (same goes for "Sulfuras": see also story N5)

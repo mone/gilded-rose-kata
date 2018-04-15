@@ -110,4 +110,24 @@ class GildedRoseTest  extends FlatSpec with Matchers {
     app.items(0).quality should equal (80)
   }
 
+  it should "decrease Conjured item quality by 2" in {
+    val items = Array[Item](new Item("Conjured item", 1, 10))
+
+    val app = new GildedRose(items)
+    app.updateQuality()
+
+    app.items(0).sellIn should equal (0)
+    app.items(0).quality should equal (8)
+  }
+
+  it should "decrease Conjured item quality by 4 when expired" in {
+    val items = Array[Item](new Item("Conjured item", 0, 10))
+
+    val app = new GildedRose(items)
+    app.updateQuality()
+
+    app.items(0).sellIn should equal (-1)
+    app.items(0).quality should equal (6)
+  }
+
 }

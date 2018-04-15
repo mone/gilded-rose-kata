@@ -35,9 +35,17 @@ object ExtendedItem {
     case "Sulfuras, Hand of Ragnaros" =>
       LegendaryItem(item.name, item.sellIn)
 
+    case itemName if itemName.startsWith("Conjured") =>
+      ConjuredItem(item.name, item.sellIn, item.quality)
+
     case _ =>
       GenericItem(item.name, item.sellIn, item.quality)
   }
+
+  val genericDecrease = 1
+  val genericExpiredDecrease = 2
+
+  def genericDecrease(sellIn: Int): Int = if (sellIn <= 0) genericExpiredDecrease else genericDecrease
 
   /**
     * Generic item loses quality as it ages, once expired loses quality twice as fast
@@ -47,7 +55,7 @@ object ExtendedItem {
   ) extends ExtendedItem(name, sellIn, quality) {
 
     def updateQuality: ExtendedItem = {
-      val decBy = if (sellIn <= 0) 2 else 1
+      val decBy = genericDecrease(sellIn)
 
       GenericItem(name, decreaseSellIn(sellIn), decreaseQuality(quality, decBy))
     }
@@ -98,6 +106,20 @@ object ExtendedItem {
     def updateQuality: ExtendedItem = this
   }
 
+  /**
+    * Conjured items lose quality twice as fast as generic items
+    */
+  case class ConjuredItem(
+    name: String, sellIn: Int, quality: Int
+  ) extends ExtendedItem(name, sellIn, quality) {
+
+    def updateQuality: ExtendedItem = {
+      val decBy = genericDecrease(sellIn) * 2
+
+      ConjuredItem(name, decreaseSellIn(sellIn), decreaseQuality(quality, decBy))
+    }
+
+  }
 
 }
 

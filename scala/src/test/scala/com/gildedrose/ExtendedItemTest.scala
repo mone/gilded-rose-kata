@@ -1,6 +1,6 @@
 package com.gildedrose
 
-import com.gildedrose.ExtendedItem.{BackstagePass, GainQualityWithAgeItem, GenericItem, LegendaryItem}
+import com.gildedrose.ExtendedItem._
 import org.scalatest.{FlatSpec, Matchers}
 
 class ExtendedItemTest extends FlatSpec with Matchers {
@@ -25,7 +25,13 @@ class ExtendedItemTest extends FlatSpec with Matchers {
     )
   }
 
-  it should "make generic item into anGenericItem" in {
+  it should "make conjured item into a ConjuredItem" in {
+    ExtendedItem(new Item("Conjured whatever", 0, 0)) should be (
+      ConjuredItem("Conjured whatever", 0, 0)
+    )
+  }
+
+  it should "make generic item into a GenericItem" in {
     ExtendedItem(new Item("whatever", 0, 0)) should be (
       GenericItem("whatever", 0, 0)
     )
@@ -107,5 +113,15 @@ class ExtendedItemTest extends FlatSpec with Matchers {
 
   it should "always stay the same" in {
     LegendaryItem("item", 0).updateQuality should be(LegendaryItem("item", 0))
+  }
+
+  behavior of "ConjuredItem.updateQuality"
+
+  it should "decrease quality by 2 and sellIn by 1" in {
+    ConjuredItem("item", 2, 2).updateQuality should be (ConjuredItem("item", 1, 0))
+  }
+
+  it should "decrease quality by 4 when sell by date has passed" in {
+    ConjuredItem("item", 0, 4).updateQuality should be (ConjuredItem("item", -1, 0))
   }
 }
