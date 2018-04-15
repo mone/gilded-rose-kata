@@ -68,3 +68,5 @@ BUG1 Sulfuras quality is not always 80 ✓
 
 BUG2 Only one type of "Backstage passes" is supported: verify if this is the intended behavior
  (same goes for "Sulfuras": see also story N5)
+
+BUG3 Verify that "never has to be sold" means its sell-in date does not decrease

@@ -103,6 +103,7 @@ object ExtendedItem {
   case class LegendaryItem(
     name: String, sellIn: Int
   ) extends ExtendedItem(name, sellIn, LegendaryQuality) {
+    // TODO should seelIn decrease? see BUG3
     def updateQuality: ExtendedItem = this
   }
 
