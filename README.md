@@ -51,7 +51,7 @@ one-shot you as he doesn't believe in shared code ownership.
 
 ## Stories
 
-N1 Existing code should be tested
+N1 Existing code should be tested ✓
 
 N2 Better item wrappers should be prepared to ease update implementation
 
@@ -62,3 +62,10 @@ N4 "Conjured" item category should be introduced
 N5 We should talk to the customer to convince them to migrate from the name-based classification
 to an explicit classification via dedicated property: the current system is way too fragile (a
 simple typo will put an item in the wrong category)
+
+## Bugs
+
+BUG1 Sulfuras quality is not always 80
+
+BUG2 Only one type of "Backstage passes" is supported: verify if this is the intended behavior
+ (same goes for "Sulfuras": see also story N5)
