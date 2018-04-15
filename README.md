@@ -53,7 +53,7 @@ one-shot you as he doesn't believe in shared code ownership.
 
 N1 Existing code should be tested ✓
 
-N2 Better item wrappers should be prepared to ease update implementation
+N2 Better item wrappers should be prepared to ease update implementation ✓
 
 N3 Code should be refactored to be more readable
 
@@ -62,6 +62,8 @@ N4 "Conjured" item category should be introduced
 N5 We should talk to the customer to convince them to migrate from the name-based classification
 to an explicit classification via dedicated property: the current system is way too fragile (a
 simple typo will put an item in the wrong category)
+
+N6 quality and sellIn fields should be tagged types to prevent mistakes
 
 ## Bugs
 
